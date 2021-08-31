@@ -14,7 +14,7 @@ export class NavMenu extends Component {
 
   render () {
     return (
-      <header>
+      <header className="">
         <h1>AOC - Timer</h1>
       </header>
     );
