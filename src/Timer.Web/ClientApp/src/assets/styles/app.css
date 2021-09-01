@@ -1,8 +1,11 @@
+@import url(../fonts/fonts.css);
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 html, body {
+    /* font-family: 'Bradesco Sans'; */
     margin: 0;
     height: 100%;
     overflow: hidden;

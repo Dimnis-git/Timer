@@ -9,7 +9,7 @@ export class Footer extends Component {
 
     render() {
         return (
-            <foooter>
+            <foooter className="font-sansBold">
                 Desenvolvido por AOC - PSPB © { new Date().getFullYear() } 
             </foooter>
         )

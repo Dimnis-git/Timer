@@ -1,0 +1,65 @@
+@font-face {
+	font-family: 'BradescoSans-Thin';
+	src: url(./BradescoSans-Thin.eot);
+	src: url(./BradescoSans-Thin.eot#iefix) format('embedded-opentype'),
+		url(./BradescoSans-Thin.woff) format('woff'),
+		url(./BradescoSans-Thin-web.ttf) format('truetype'),
+		url(./BradescoSans-Thin.svg#Name) format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'BradescoSans-Light';
+	src: url(./BradescoSans-Light.eot);
+	src: url(./BradescoSans-Light.eot#iefix) format('embedded-opentype'),
+		url(./BradescoSans-Light.woff) format('woff'),
+		url(./BradescoSans-Light-web.ttf) format('truetype'),
+		url(./BradescoSans-Light.svg#Name) format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'BradescoSans-Regular';
+	src: url(./BradescoSans-Regular.eot);
+	src: url(./BradescoSans-Regular.eot#iefix) format('embedded-opentype'),
+		url(./BradescoSans-Regular.woff) format('woff'),
+		url(./BradescoSans-Regular-web.ttf) format('truetype'),
+		url(./BradescoSans-Regular.svg#Name) format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'BradescoSans-Medium';
+	src: url(./BradescoSans-Medium.eot);
+	src: url(./BradescoSans-Medium.eot#iefix) format('embedded-opentype'),
+		url(./BradescoSans-Medium.woff) format('woff'),
+		url(./BradescoSans-Medium-web.ttf) format('truetype'),
+		url(./BradescoSans-Medium.svg#Name) format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'BradescoSans-SemiBold';
+	src: url(./BradescoSans-SemiBold.eot);
+	src: url(./BradescoSans-SemiBold.eot#iefix) format('embedded-opentype'),
+		url(./BradescoSans-SemiBold.woff) format('woff'),
+		url(./BradescoSans-SemiBold-web.ttf) format('truetype'),
+		url(./BradescoSans-SemiBold.svg#Name) format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'BradescoSans-Bold';
+	src: url(./BradescoSans-Bold.eot);
+	src: url(./BradescoSans-Bold.eot#iefix) format('embedded-opentype'),
+		url(./BradescoSans-Bold.woff) format('woff'),
+		url(./BradescoSans-Bold-web.ttf) format('truetype'),
+		url(./BradescoSans-Bold.svg#Name) format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
