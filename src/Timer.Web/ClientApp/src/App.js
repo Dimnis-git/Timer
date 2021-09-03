@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router';
 import { Layout } from './components/Layout/index.jsx';
-import { Home } from './pages/Home/index';
+import { Home } from './pages/Home/index.jsx';
 
 import './assets/styles/app.css'
 
