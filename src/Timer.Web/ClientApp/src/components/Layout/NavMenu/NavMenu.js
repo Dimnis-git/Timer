@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { FiHelpCircle, FiLogOut} from 'react-icons/fi';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import userNotFound from '../../../assets/images/userImage404.png';
 import logoBradesco from '../../../assets/images/logoBrad.png';
@@ -14,19 +14,19 @@ export class NavMenu extends Component {
 
   render () {
     return (
-      <header className="flex justify-between text-white text-4xl bg-gradient-to-r lg:justify-evenly">
+      <header className="flex justify-between text-white text-4xl bg-gradient-to-r lg:justify-between xl:justify-evenly ">
         <section className="flex items-center">
           <img className="w-24" src={ logoBradesco }/>
-          <h1 className="mb-2 text-5xl font-sansLight px-2 flex"> 
+          <Link to="/" className="mb-2 text-5xl font-sansLight px-2 flex hover:text-white hover:no-underline"> 
             <p className="font-sansMedium">aoc</p> 
             <p className="px-2">|</p> 
             timer
-          </h1>
+          </Link>
         </section>
         <section className="flex items-center">
-          <div className="mr-4">
-            <button title="Ajuda"> <FiHelpCircle size={26} className="mx-4"/> </button>
-            <button title="Sair"> <FiLogOut size={26} /> </button>
+          <div className="mr-4 flex">
+            <Link to="/help" title="Ajuda" className="mx-4 hover:text-blue-300"> <FiHelpCircle size={26} /> </Link>
+            <Link title="Sair" className="hover:text-blue-300"> <FiLogOut size={26} /> </Link>
           </div>
           <div className="font-sansMedium text-right px-1 text-xl">
             <p>Renan de Oliveira Pereira</p>

@@ -13,7 +13,7 @@ export class Notes extends Component {
             <div className="form">
                 <header className="form-title flex justify-between items-center">
                     <h1> <Emoji symbol="📔" />Notas</h1>
-                    <button className="duration-300 rounded-3xl hover:bg-blue-300"><IoMdAddCircleOutline size={32} /></button>
+                    <button className="duration-300 rounded-3xl hover:bg-blue-300 :focus:outline-none"><IoMdAddCircleOutline size={32} /></button>
                 </header>
             </div>
         );
