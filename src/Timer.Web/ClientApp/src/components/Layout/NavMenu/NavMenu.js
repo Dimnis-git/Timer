@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { FiHelpCircle, FiLogOut} from 'react-icons/fi';
+import { FiHelpCircle, FiLogOut } from 'react-icons/fi';
+import { BiAlarmAdd } from 'react-icons/bi';
+import { MdClose } from 'react-icons/md'
 import { Link } from 'react-router-dom';
 
 import userNotFound from '../../../assets/images/userImage404.png';
@@ -10,6 +12,16 @@ export class NavMenu extends Component {
 
   constructor (props) {
     super(props);
+    this.state = {
+      showIncludeForm: true
+    }
+    this.toggleIncludeForm = this.toggleIncludeForm.bind(this)
+  }
+
+  toggleIncludeForm() {
+    this.setState({
+      showIncludeForm: !this.state.showIncludeForm
+  })
   }
 
   render () {
@@ -25,6 +37,7 @@ export class NavMenu extends Component {
         </section>
         <section className="flex items-center">
           <div className="mr-4 flex">
+            <button onClick={this.toggleIncludeForm}className="hover:text-blue-300 focus:outline-none"> <BiAlarmAdd size={26}/> </button>
             <Link to="/help" title="Ajuda" className="mx-4 hover:text-blue-300"> <FiHelpCircle size={26} /> </Link>
             <Link title="Sair" className="hover:text-blue-300"> <FiLogOut size={26} /> </Link>
           </div>
@@ -36,6 +49,19 @@ export class NavMenu extends Component {
             <img className="w-20 h-20 inline" src={ userNotFound }/>
           </div>
         </section>
+        {
+          this.state.showIncludeForm &&
+          (
+            <div className="flex justify-center items-center absolute z-10 w-full h-full bg-gray-400 bg-opacity-60">
+              <form className="w-2/6 h-4/6 bg-white rounded-2xl">
+                <header className="text-black p-4 flex justify-between">
+                  <h1 className="font-sansLight">Novo temporizador</h1>
+                  <button onClick={this.toggleIncludeForm} className="outline-none focus:outline-none" > <MdClose className="focus:outline-none" size={36}/> </button>
+                </header>
+              </form>
+            </div>
+          )
+        }
       </header>
     );
   }
