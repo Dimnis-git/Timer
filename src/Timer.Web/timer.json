@@ -1,0 +1,13 @@
+{
+    "timers":
+    [
+        {
+            "name":"Teste1", 
+            "time":"180"
+        },
+        {
+            "name":"Teste2", 
+            "time":"60"
+        }
+    ]
+}
