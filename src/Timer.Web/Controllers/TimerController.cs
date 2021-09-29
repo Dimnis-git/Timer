@@ -1,29 +1,31 @@
-using System;
-using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.IO;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Timer.Web.Models;
 
 namespace Timer.Web.Controllers {   
 
     [ApiController]
-    [Route("[controller]")]
-    public class TimerController : ControllerBase {
-
-        private string jsonFile = "../timer.json";
+    [Route("api/[controller]")]
+    public class TimerController : ControllerBase 
+    {
+        private string jsonFile = "timer.json";
 
         [HttpGet]
-        public IEnumerable<TimerModel> Get() {
-            
-            try
+        public TimerModel Get()
+        {
+            using (StreamReader reader = new StreamReader(jsonFile))
             {
-                 var timerModel = JsonConvert.DeserializeObject<IEnumerable<TimerModel>>(jsonFile);
-                 return timerModel;
+                string json = reader.ReadToEnd();
+                var timers = JsonConvert.DeserializeObject<TimerModel>(json);
+                return timers;
             }
-            catch (System.Exception ex)
-            {
-                throw ex;
-            }
-        }       
+        }
+
+        [HttpPost("[action]")]
+        public bool IncludeTimer([FromBody]TimerModel model) 
+        {
+            return true;
+        }
     }
 }

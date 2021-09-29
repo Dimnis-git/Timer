@@ -1,13 +1,14 @@
 {
-    "timers":
-    [
-        {
-            "name":"Teste1", 
-            "time":"180"
-        },
-        {
-            "name":"Teste2", 
-            "time":"60"
-        }
+    "timer": [
+      {
+        "id": 1,
+        "name": "Teste 1",
+        "time": 160
+      },
+      {
+        "id": 2,
+        "name": "Teste 2",
+        "time": 90
+      }
     ]
-}
+  }

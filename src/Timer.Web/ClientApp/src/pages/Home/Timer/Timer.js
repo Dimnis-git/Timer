@@ -10,7 +10,7 @@ export class Timer extends Component {
     
     render() { 
         return (  
-            <div className="form flex flex-col">
+            <div className="form flex flex-col col-span-2">
                 <main className="flex flex-grow justify-center">
 
                 </main>

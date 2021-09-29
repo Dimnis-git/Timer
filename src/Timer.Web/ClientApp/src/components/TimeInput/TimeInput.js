@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 export const TimeInput = (props) => {
-    const [value, setValue] = useState("")
+    const [value, setValue] = useState("00:00")
 
     const onChange = (event) => {
         setValue(event.target.value);

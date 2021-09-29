@@ -1,28 +1,19 @@
 import React, { Component } from 'react';
+import { TimerEdit } from '../../../pages/Home/Timer/TimerEdit';
+
+// React Icons
 import { FiHelpCircle, FiLogOut } from 'react-icons/fi';
 import { BiAlarmAdd } from 'react-icons/bi';
-import { MdClose } from 'react-icons/md'
 import { Link } from 'react-router-dom';
-import { TimeInput } from '../../../hooks/TimeInput'
 
+// Images
 import userNotFound from '../../../assets/images/userImage404.png';
 import logoBradesco from '../../../assets/images/logoBrad.png';
 
 export class NavMenu extends Component {
-  static displayName = NavMenu.name;
-
   constructor (props) {
     super(props);
-    this.state = {
-      showIncludeForm: true
-    }
-    this.toggleIncludeForm = this.toggleIncludeForm.bind(this)
-  }
-
-  toggleIncludeForm() {
-    this.setState({
-      showIncludeForm: !this.state.showIncludeForm
-  })
+    this.state = { }
   }
 
   render () {
@@ -38,7 +29,9 @@ export class NavMenu extends Component {
         </section>
         <section className="flex items-center">
           <div className="mr-4 flex">
-            <button onClick={this.toggleIncludeForm}className="hover:text-blue-300 focus:outline-none"> <BiAlarmAdd size={26}/> </button>
+            <button className="hover:text-blue-300 focus:outline-none"> 
+              <BiAlarmAdd size={26}/> 
+            </button>
             <Link to="/help" title="Ajuda" className="mx-4 hover:text-blue-300"> <FiHelpCircle size={26} /> </Link>
             <Link title="Sair" className="hover:text-blue-300"> <FiLogOut size={26} /> </Link>
           </div>
@@ -50,30 +43,7 @@ export class NavMenu extends Component {
             <img className="w-20 h-20 inline" src={ userNotFound }/>
           </div>
         </section>
-        {
-          this.state.showIncludeForm &&
-          (
-            <div className="text-black flex justify-center items-center absolute z-10 w-full h-full bg-gray-400 bg-opacity-60">
-              <section className=" w-3/12 h-4/6 bg-white rounded-2xl">
-                <header className=" p-4 flex justify-between">
-                  <h1 className="font-sansLight">Temporizadores</h1>
-                  <button onClick={this.toggleIncludeForm} className="outline-none focus:outline-none" > <MdClose className="focus:outline-none" size={36}/> </button>
-                </header>
-                <form className="relative mx-4 px-1 items-center ">
-                  <label className="text-lg font-sansSemiBold p-1 mb-1">Nome do Temporizador</label>
-                  <input className="border border-gray-300 text-lg block rounded-lg px-2 py-1 w-full mb-2 font-sansMedium" type="text" placeholder="Nome"></input>
-                  <label className="text-lg font-sansSemiBold px-1 mb-0 block">Tempo</label>
-                  <TimeInput className="border border-gray-300 text-lg rounded-lg px-2 py-1 w-3/5 font-sansMedium"/>
-                  <input className="font-sansBold text-lg ml-4 w-4/12 px-2 py-1 rounded-lg bg-blue-500 text-white" type="submit" value="Adicionar"/>
-                </form>
-                <hr className="my-4"/>
-                <main>
-
-                </main>
-              </section>
-            </div>
-          )
-        }
+        <TimerEdit/>
       </header>
     );
   }
