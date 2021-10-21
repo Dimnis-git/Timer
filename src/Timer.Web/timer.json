@@ -1,14 +1,10 @@
-{
-    "timer": [
-      {
-        "id": 1,
-        "name": "Teste 1",
-        "time": 160
-      },
-      {
-        "id": 2,
-        "name": "Teste 2",
-        "time": 90
-      }
-    ]
+[
+  {
+    "Name": "Atendimento as Agências",
+    "Time": 60
+  },
+  {
+    "Name": "Operação SAC",
+    "Time": 120
   }
+]

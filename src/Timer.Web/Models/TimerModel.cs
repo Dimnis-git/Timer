@@ -1,10 +1,9 @@
-using System.Collections.Generic;
-using Timer.Web.Models;
-
 namespace Timer.Web.Models {
 
     public class TimerModel {
-
-        public List<PropTimer> timer { get; set; }
+        
+        public string Name { get; set; }
+        
+        public string Time { get; set; }
     }
 }

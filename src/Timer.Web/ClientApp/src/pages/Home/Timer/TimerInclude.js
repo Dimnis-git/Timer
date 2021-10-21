@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 
 const TimerInclude = () => {
-    const formState = { id: null, name: '', time: '' }
+    const formState = { name: '', time: '' }
     const [timer, setTimer] = useState(formState)
+
+    let data = {
+        name: timer.name,
+        time: timer.time
+    }
 
     const handleChange = (event) => {
         const { name, value } = event.target
@@ -10,23 +15,18 @@ const TimerInclude = () => {
     };
 
     const handleSubmit = (event) => {
-        event.preventDefautl();
+        event.preventDefault();
         saveTimer();
     }
 
-    let data = {
-        name: timer.name,
-        time: timer.time
-    }
-
     const saveTimer = () => {
-        fetch('/api/Timer/IncludeTimer', {
+        fetch('/api/Timer/Post', {
             method: 'POST',
-            body: JSON.stringify(data),
-            headers: { "Content-Type": "application/json"}
-        })
-        .then(res => res.json())
-        .then(json => console.log(json))
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
     };
     
     return (

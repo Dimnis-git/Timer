@@ -10,7 +10,7 @@ export class Notes extends Component {
 
     render() { 
         return ( 
-            <div className="form col-span-2">
+            <div className="form col-span-2 row-span-2">
                 <header className="form-title flex justify-between items-center">
                     <h1> <Emoji symbol="📔" />Notas</h1>
                     <button className="duration-300 rounded-3xl hover:bg-blue-300 focus:outline-none"><IoMdAddCircleOutline size={32} /></button>

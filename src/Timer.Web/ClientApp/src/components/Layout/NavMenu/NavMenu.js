@@ -13,7 +13,13 @@ import logoBradesco from '../../../assets/images/logoBrad.png';
 export class NavMenu extends Component {
   constructor (props) {
     super(props);
-    this.state = { }
+    this.state = { toggle: true }
+  }
+
+  toggleTimerEdit() {
+    this.setState({
+      toggle:!this.state.toggle
+    })
   }
 
   render () {
@@ -29,7 +35,7 @@ export class NavMenu extends Component {
         </section>
         <section className="flex items-center">
           <div className="mr-4 flex">
-            <button className="hover:text-blue-300 focus:outline-none"> 
+            <button onClick={this.toggleTimerEdit.bind} className="hover:text-blue-300 focus:outline-none"> 
               <BiAlarmAdd size={26}/> 
             </button>
             <Link to="/help" title="Ajuda" className="mx-4 hover:text-blue-300"> <FiHelpCircle size={26} /> </Link>
@@ -43,7 +49,11 @@ export class NavMenu extends Component {
             <img className="w-20 h-20 inline" src={ userNotFound }/>
           </div>
         </section>
-        <TimerEdit/>
+        {
+          this.state.toggle && (
+            <TimerEdit/>
+          )
+        }
       </header>
     );
   }

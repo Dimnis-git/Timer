@@ -5,22 +5,19 @@ import TimerInclude from './TimerInclude'
 import { BiEditAlt, BiTrash } from 'react-icons/bi';
 import { MdClose } from 'react-icons/md'
 
-export function TimerEdit(props) {
+export const TimerEdit = () => {
   const [timers, setTimers] = useState([])
-  const [show, setShow] = useState(true)
+  const [show, setShow] = useState(false)
 
-  // On ComponentMount
-  // useEffect(() => {
-  //     loadTimers();
-  // }, [])
+  // OnComponentMount
+  useEffect(() => {
+      loadTimers();
+  }, [])
 
-  // async function loadTimers() {
-  //     const response = await fetch('timer');
-  //     const data = await response.json();
-  //     setTimers(data);
-  // }
-
-  function onClick() {
+  async function loadTimers() {
+      const response = await fetch('/api/Timer/Get');
+      const data = await response.json();
+      setTimers(data);
   }
 
   return (
@@ -30,8 +27,7 @@ export function TimerEdit(props) {
             <section className="relative 2xl:w-3/12 h-4/6 bg-white rounded-2xl md:w-6/12">
               <header className="m-3 px-1 flex justify-between">
                 <h1 className="font-sansLight">Temporizadores</h1>
-                <button  className="outline-none focus:outline-none" > <MdClose className="focus:outline-none" size={36}/> </button>
-                {/* onClick={() => setShow(!show) || onClick} */}
+                <button onClick={() => setShow(!show)} className="outline-none focus:outline-none" > <MdClose className="focus:outline-none" size={36}/> </button>
               </header>
               <TimerInclude />
               <hr className="my-4"/>

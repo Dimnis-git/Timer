@@ -1,48 +1,34 @@
-import React, { Component } from 'react';
-import Emoji from '../../../components/Emoji/Emoji';
-import { MdTimer } from 'react-icons/md';
+import React, { useState, useEffect } from 'react'
+import { BsClockHistory } from 'react-icons/bs';
 
-export class TimerList extends Component {
-    
-    constructor(props) {
-        super(props);
-        this.state = { timers: [] }
-    }
+export const TimerList = (props) => {
+    const [timer, setTimer] = useState([])
+    const { updateTime } = props;
 
-    componentDidMount() {
-        this.loadTimersList();
-    }
+    // On Component Mount
+    useEffect(() => {
+        loadTimers()
+    }, [])
 
-    async loadTimersList() {
-        const response = await fetch('timer');
+    async function loadTimers() {
+        const response = await fetch('/api/Timer/Get');
         const data = await response.json();
-        // this.setState({
-        //     timers: data
-        // })
+        setTimer(data);
     }
 
-    render() { 
-        return (  
-            <div className="form row-start-1 row-end-3">
-                <header className="form-title flex">
-                    <h1 className="pl-1"> <Emoji symbol="⏰" />Temporizadores</h1>
-                </header>
-                <main className="my-2 py-1">
-                    {/* {
-                        this.state.timers.map((timer) =>
-                            <section key={timer.id} className="py-2 my-3 h-1/6 flex items-center rounded-xl pl-1 cursor-pointer blur-xl hover:bg-gray-300 hover:bg-opacity-40 duration-100">
-                                <div className="items-center flex">
-                                    <MdTimer className="inline-block" size={32}/>
-                                    <div className="inline-block">
-                                        <h1 className="font-bold px-2 text-lg">{timer.name}</h1>
-                                        <h2 className="font-sansMedium px-2 text-lg"> <p className="font-semibold inline-block">Tempo:</p>  {timer.time}</h2>
-                                    </div>
-                                </div>
-                            </section>
-                        )
-                    } */}
-                </main>
-            </div>
-        );
-    }
+    return (
+        <ul>
+            { timer.map((timer, index) => 
+                <li key={index} onClick={ () => updateTime(timer.time)}> 
+                    <div className="font-sansRegular flex items-center p-1 mb-3 duration-75 hover:bg-gray-300 hover:bg-opacity-50 rounded-xl cursor-pointer">
+                        <BsClockHistory size={32} />
+                        <div className="pl-2 text-lg">
+                            <p className="inline-block">{timer.name}</p>
+                            <p> { new Date(timer.time * 1000).toISOString().substr(11, 8) } </p>
+                        </div>
+                    </div>
+                </li> ) 
+            }
+        </ul>
+    )
 }
