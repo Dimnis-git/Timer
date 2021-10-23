@@ -5,9 +5,10 @@ import TimerInclude from './TimerInclude'
 import { BiEditAlt, BiTrash } from 'react-icons/bi';
 import { MdClose } from 'react-icons/md'
 
-export const TimerEdit = () => {
+export const TimerEdit = (props) => {
   const [timers, setTimers] = useState([])
-  const [show, setShow] = useState(false)
+  const [show, setShow] = useState(true)
+  const {hide} = props;
 
   // OnComponentMount
   useEffect(() => {
@@ -22,12 +23,11 @@ export const TimerEdit = () => {
 
   return (
     <>
-      { show && (
           <div className="text-black flex justify-center items-center absolute z-10 w-full h-full bg-gray-400 bg-opacity-60">
             <section className="relative 2xl:w-3/12 h-4/6 bg-white rounded-2xl md:w-6/12">
               <header className="m-3 px-1 flex justify-between">
                 <h1 className="font-sansLight">Temporizadores</h1>
-                <button onClick={() => setShow(!show)} className="outline-none focus:outline-none" > <MdClose className="focus:outline-none" size={36}/> </button>
+                <button onClick={() => hide(false)} className="outline-none focus:outline-none" > <MdClose className="focus:outline-none" size={36}/> </button>
               </header>
               <TimerInclude />
               <hr className="my-4"/>
@@ -49,8 +49,6 @@ export const TimerEdit = () => {
               </main>
             </section>
           </div>
-        )
-      }
     </>
   )
 }

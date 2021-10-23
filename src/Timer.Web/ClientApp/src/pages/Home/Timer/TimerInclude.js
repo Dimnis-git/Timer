@@ -48,7 +48,7 @@ const TimerInclude = () => {
                     name="time"
                     value={timer.time}
                     onChange={handleChange} />
-                <input className="button-primary ml-4 w-4/12" type="submit" value="Adicionar"/>
+                <input className="button-primary ml-4 w-4/12 bg-blue-500 hover:bg-blue-600" type="submit" value="Adicionar"/>
             </form>
         </>
     )

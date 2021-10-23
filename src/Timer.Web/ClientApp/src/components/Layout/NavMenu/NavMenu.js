@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { TimerEdit } from '../../../pages/Home/Timer/TimerEdit';
 
 // React Icons
@@ -10,21 +10,11 @@ import { Link } from 'react-router-dom';
 import userNotFound from '../../../assets/images/userImage404.png';
 import logoBradesco from '../../../assets/images/logoBrad.png';
 
-export class NavMenu extends Component {
-  constructor (props) {
-    super(props);
-    this.state = { toggle: true }
-  }
+export const NavMenu = () => {
+  const [toggle, setToggle] = useState(false);
 
-  toggleTimerEdit() {
-    this.setState({
-      toggle:!this.state.toggle
-    })
-  }
-
-  render () {
-    return (
-      <header className="flex justify-between text-white text-4xl bg-gradient-to-r lg:justify-between xl:justify-evenly ">
+  return(
+    <header className="flex justify-between text-white text-4xl bg-gradient-to-r lg:justify-between xl:justify-evenly ">
         <section className="flex items-center">
           <img className="w-24" src={ logoBradesco }/>
           <Link to="/" className="mb-2 text-5xl font-sansLight px-2 flex hover:text-white hover:no-underline"> 
@@ -35,7 +25,7 @@ export class NavMenu extends Component {
         </section>
         <section className="flex items-center">
           <div className="mr-4 flex">
-            <button onClick={this.toggleTimerEdit.bind} className="hover:text-blue-300 focus:outline-none"> 
+            <button onClick={() => setToggle(!toggle)} className="hover:text-blue-300 focus:outline-none"> 
               <BiAlarmAdd size={26}/> 
             </button>
             <Link to="/help" title="Ajuda" className="mx-4 hover:text-blue-300"> <FiHelpCircle size={26} /> </Link>
@@ -48,13 +38,36 @@ export class NavMenu extends Component {
           <div className="m-2 w-16 h-16 overflow-hidden rounded-full">
             <img className="w-20 h-20 inline" src={ userNotFound }/>
           </div>
-        </section>
-        {
-          this.state.toggle && (
-            <TimerEdit/>
-          )
-        }
-      </header>
-    );
-  }
+      </section>
+      { toggle ? <TimerEdit hide={setToggle}/>:  null}
+    </header>
+  )
 }
+
+
+
+
+// export class NavMenu extends Component {
+//   constructor (props) {
+//     super(props);
+//     this.state = { toggle: true }
+//   }
+
+//   toggleTimerEdit() {
+//     this.setState({
+//       toggle:!this.state.toggle
+//     })
+//   }
+
+//   render () {
+//     return (
+      
+//         {
+//           this.state.toggle && (
+//             <TimerEdit/>
+//           )
+//         }
+
+//     );
+//   }
+// }
