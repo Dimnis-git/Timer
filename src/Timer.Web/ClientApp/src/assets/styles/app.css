@@ -35,7 +35,7 @@ html, body {
 }
 
 .button-timer {
-    @apply button-primary w-1/3 flex justify-center items-center
+    @apply button-primary w-1/3 flex justify-center items-center focus:outline-none 
 }
 
 .label-input {

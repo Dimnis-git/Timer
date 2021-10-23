@@ -6,5 +6,13 @@
   {
     "Name": "Operação SAC",
     "Time": 120
+  },
+  {
+    "Name": "Operação Banco",
+    "Time": 85
+  },
+  {
+    "Name": "Agente Solucionador",
+    "Time": 10
   }
 ]

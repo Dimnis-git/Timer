@@ -3,7 +3,7 @@ import { BsClockHistory } from 'react-icons/bs';
 
 export const TimerList = (props) => {
     const [timer, setTimer] = useState([])
-    const { updateTime } = props;
+    const { updateTime, updateOldTimer, updateName, isActive } = props;
 
     // On Component Mount
     useEffect(() => {
@@ -19,8 +19,8 @@ export const TimerList = (props) => {
     return (
         <ul>
             { timer.map((timer, index) => 
-                <li key={index} onClick={ () => updateTime(timer.time)}> 
-                    <div className="font-sansRegular flex items-center p-1 mb-3 duration-75 hover:bg-gray-300 hover:bg-opacity-50 rounded-xl cursor-pointer">
+                <li key={index} onClick={function(event){updateTime(timer.time); updateOldTimer(timer.time); updateName(timer.name); isActive(false) }}> 
+                    <div className="font-sansMedium flex items-center p-1 mb-3 duration-75 hover:bg-gray-300 hover:bg-opacity-50 rounded-xl cursor-pointer">
                         <BsClockHistory size={32} />
                         <div className="pl-2 text-lg">
                             <p className="inline-block">{timer.name}</p>
