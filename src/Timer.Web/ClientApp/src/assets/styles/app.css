@@ -22,6 +22,14 @@ html, body {
     padding: 15px;
 }
 
+.note-input {
+    background: rgba( 248, 231, 28, 0.3 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 2px );
+    -webkit-backdrop-filter: blur( 2px );
+    border-radius: 10px;
+}
+
 .form-title {
     @apply font-sansSemiBold text-2xl
 }
