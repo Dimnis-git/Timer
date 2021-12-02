@@ -4,14 +4,15 @@ const TimerInclude = () => {
     const formState = { name: '', time: '' }
     const [timer, setTimer] = useState(formState)
 
-    let data = {
-        name: timer.name,
-        time: timer.time
-    }
-
     const handleChange = (event) => {
         const { name, value } = event.target
-        setTimer({ ...timer, [name]: value});
+        console.log(value)
+
+        if (name === "time") {
+            setTimer({ ...timer, [name]: value});
+        } else {
+            setTimer({ ...timer, [name]: value});
+        }
     };
 
     const handleSubmit = (event) => {
@@ -25,9 +26,11 @@ const TimerInclude = () => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(timer)
         });
     };
+
+    const red = timer.name ? 'form-input w-full mb-3 shadow-sm border-2 border-red-700' : 'form-input w-full mb-3 shadow-sm'
     
     return (
         <>
@@ -35,7 +38,7 @@ const TimerInclude = () => {
                 <label className="label-input">Nome do Temporizador</label>
                 <input 
                     type="text"
-                    className="form-input w-full mb-3 shadow-sm" 
+                    className={`form-input w-full mb-3 shadow-sm focus:outline-none ${timer.name || 'border-red-700'}`}
                     placeholder="Nome" 
                     name="name"
                     value={timer.name}
@@ -43,9 +46,9 @@ const TimerInclude = () => {
                 <label className="label-input block">Tempo</label>
                 <input 
                     type="text"
-                    className="form-input w-3/5 shadow-sm"  
+                    className={`form-input w-3/5 mb-3 shadow-sm focus:outline-none ${timer.time || 'border-red-700'}`}
                     placeholder="00:00" 
-                    name="time"
+                    name="time" 
                     value={timer.time}
                     onChange={handleChange} />
                 <input className="button-primary ml-4 w-4/12 bg-blue-500 hover:bg-blue-600" type="submit" value="Adicionar"/>

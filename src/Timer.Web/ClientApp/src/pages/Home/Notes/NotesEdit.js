@@ -23,7 +23,7 @@ export const NotesEdit = (props) => {
     }
 
     const saveNote = (event) =>  {
-            const transaction = db.transaction([storeName], "readwrite")
+        const transaction = db.transaction([storeName], "readwrite")
     }
 
     const createDB = () => {
